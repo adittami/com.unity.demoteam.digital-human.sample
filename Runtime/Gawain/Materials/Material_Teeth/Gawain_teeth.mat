@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 2
+  version: 12
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -23,17 +26,25 @@ Material:
   m_Name: Gawain_teeth
   m_Shader: {fileID: -6465566751694194690, guid: bc408bac29ada3d4cb3ee48f863fe564,
     type: 3}
-  m_ShaderKeywords: TEETH_ATTN_SKYPOLYGON TEETH_ATTN_TEETH_ATTN_SKYPOLYGON TEETH_DATA_FIXED_6
-    TEETH_DATA_TEETH_DATA_FIXED_6
+  m_ValidKeywords:
+  - TEETH_ATTN_SKYPOLYGON
+  - TEETH_DATA_FIXED_6
+  - _DISABLE_SSR_TRANSPARENT
+  m_InvalidKeywords:
+  - TEETH_ATTN_TEETH_ATTN_SKYPOLYGON
+  - TEETH_DATA_TEETH_DATA_FIXED_6
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2225
   stringTagMap:
     MotionVector: User
   disabledShaderPasses:
   - MOTIONVECTORS
   - TransparentBackface
+  - TransparentDepthPrepass
+  - TransparentDepthPostpass
+  - RayTracingPrepass
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -57,6 +68,19 @@ Material:
         m_Texture: {fileID: 2800000, guid: 45963a05be427c24ebab6885ecfb54fa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - ENUM_3C8052AD: 2
     - ENUM_60FA5B81: 0
@@ -70,18 +94,29 @@ Material:
     - Vector1_B67B9F00: 1
     - Vector1_BF465F41: 1
     - Vector1_D224AD90: 0
+    - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
+    - _AlphaToMask: 0
+    - _AlphaToMaskInspectorValue: 0
     - _BlendMode: 0
+    - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
+    - _DepthOffsetEnable: 0
     - _DiffusionProfileHash: 3.8619018
     - _DoubleSidedEnable: 0
+    - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
+    - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
+    - _OpaqueCullMode: 2
+    - _RayTracing: 0
     - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 0
+    - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 1
     - _SrcBlend: 1
@@ -95,10 +130,14 @@ Material:
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
+    - _SupportDecals: 1
     - _SurfaceType: 0
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
+    - _TransparentDepthPostpassEnable: 0
+    - _TransparentDepthPrepassEnable: 0
     - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 3
@@ -107,7 +146,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_CF785A7E: {r: 1, g: 0.975, b: 0.95, a: 1}
+    - Vector2_3BD0F002: {r: 0, g: 0, b: 0, a: 0}
     - Vector4_EE94FD5A: {r: 1, g: 1, b: 0, a: 0}
     - _DiffusionProfileAsset: {r: -3.955976e-18, g: 931.7912, b: -1.4195336e-33, a: -2.7005924e+14}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
